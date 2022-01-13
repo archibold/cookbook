@@ -1,0 +1,28 @@
+input, textarea {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #1c1c1c;
+  color: #577da0;
+  padding: 15px;
+  font-size: 25px;
+  outline: none;
+}
+textarea:focus, input:focus {
+  background: #1c1c1c;
+  transition: background 250ms;
+}
+
+button {
+  padding: 10px;
+  width: 100%;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; } /* IE < 8 */
