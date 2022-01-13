@@ -3,25 +3,34 @@
     <input
       :placeholder="nameLabel"
       v-model="name"
-      @keyup="$emit('update:name', name);">
+      @keyup="update">
     <textarea
       class="steps"
       :placeholder="stepsLabel"
       v-model="steps"
-      @keyup="$emit('update:steps', steps);"/>
+      @keyup="update"/>
   </div>
 </template>
 
 <script>
 export default {
   name: 'RecipeTemplate',
-  props: ['name, steps'],
+  props: ['recipeTemplate'],
   data() {
     return {
-      name: '',
+      name: this.recipeTemplate.name,
+      steps: this.recipeTemplate.steps,
       nameLabel: 'Recipe name',
-      steps: '',
       stepsLabel: 'Steps...',
+    }
+  },
+  methods: {
+    update() {
+      const newRecipeTemplate = {
+        name: this.name,
+        steps: this.steps,
+      }
+      this.$emit('update:recipeTemplate', newRecipeTemplate);
     }
   }
 }

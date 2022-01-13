@@ -4,8 +4,8 @@
     <IndigrentList :indigrent-list="indigrentList" v-on:on-remove-indigrient="onRemoveIndigrient" />
   </Sidebar>
   <Container>
-      <RecipeTemplate v-model:name="recipeName" v-model:steps="recipeSteps"/>
-      <ActionButton @onAction="onAddRecipe">+</ActionButton>
+      <RecipeTemplate v-model:recipe-template="recipeTemplate"/>
+      <ActionButton v-if="isVisible" @onAction="onAddRecipe">+</ActionButton>
   </Container>
 </template>
 
@@ -18,8 +18,6 @@ import IndigrentSearch from '@/components/IndigrentSearch.vue'
 import RecipeTemplate  from '@/components/RecipeTemplate.vue'
 
 import { getItem, setItem } from '@/service/storage.js'
-
-
 
 export default {
   name: 'NewRecipe',
@@ -61,8 +59,18 @@ export default {
     return {
       indigrentList: this.indigrentList,
       indigrentText: 'indigrent',
-      recipeName: '',
-      recipeSteps: '',
+      recipeTemplate: {
+        name: '',
+        steps: '',
+      },
+    }
+  },
+  computed: {
+    isVisible: function () {
+      return (
+        this.recipeTemplate.name !== '' &&
+        this.recipeTemplate.steps !== '' &&
+        this.indigrentList.length > 0)
     }
   }
 }
