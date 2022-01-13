@@ -14,6 +14,7 @@ export default {
 <style scoped>
 .recipe-item {
   padding: 15px;
+  color: #577da0;
 }
 .recipe-item:hover {
   color: #577da0;

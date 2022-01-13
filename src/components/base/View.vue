@@ -15,13 +15,13 @@ export default {
     display: flex;
     flex-direction: row;
     padding: 5px;
-    overflow: hidden;
+    overflow: auto;
     height: 100%;
+    flex: 1;
   }
 
   @media only screen and (max-width: 600px) {
     .view {
-      background-color: lightblue;
       flex-direction: column;
     }
   }

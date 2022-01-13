@@ -15,7 +15,6 @@ export default {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: #2b2b2b;
     overflow: hidden;
   }
 </style>

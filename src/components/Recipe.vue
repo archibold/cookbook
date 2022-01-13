@@ -40,30 +40,29 @@ export default {
 </script>
 
 <style scoped>
+.recipe {
+  display: flex;
+  height: 100%;
+  color: #577da0;
+}
 .sidebar {
   padding-top: 60px;
   overflow: hidden;
 }
-
+.container {
+  overflow: auto;
+}
 .indigrent {
   margin: 10px;
   min-height: 25px;
+  color: #577da0;
 }
 .name, .steps {
   padding: 15px;
 }
-
-.container {
-  overflow: auto;
-}
 .steps {
   white-space: break-spaces;
 }
-.recipe {
-  display: flex;
-  height: 100%;
-}
-
 .indigrent-list {
   overflow: auto;
 }

@@ -14,6 +14,5 @@ export default {
   .container {
     flex: 3;
     height: 100%;
-    background: #2b2b2b;
   }
 </style>
