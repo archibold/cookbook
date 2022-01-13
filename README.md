@@ -1,5 +1,7 @@
 # vue-tuto
 
+https://naughty-bell-8e100b.netlify.app
+
 ## Project setup
 ```
 yarn install
