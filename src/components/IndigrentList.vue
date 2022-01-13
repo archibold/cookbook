@@ -1,7 +1,7 @@
 <template>
     <div class="indigrent-list" >
       <div v-for="indigrent in indigrentList" :key="indigrent">
-        <Indigrient :indigrient="indigrent" v-on:on-remove="onRemoveIndigrient"></Indigrient>
+        <Indigrient :indigrient="indigrent" v-on:on-remove="onRemoveIndigrient"/>
       </div>
     </div>
 </template>

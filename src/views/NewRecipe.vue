@@ -17,7 +17,7 @@ import IndigrentList from '@/components/IndigrentList.vue'
 import IndigrentSearch from '@/components/IndigrentSearch.vue'
 import RecipeTemplate  from '@/components/RecipeTemplate.vue'
 
-import { getItem, setItem } from '@/service/storage.js'
+import { addRecipe, setIndigrentList, getIndigrentList } from '@/service/newRecipe.js'
 
 export default {
   name: 'NewRecipe',
@@ -29,35 +29,30 @@ export default {
     IndigrentList,
     IndigrentSearch,
   },
-  beforeMount(){
-    this.indigrentList = getItem('indigrentList') || [];
-  },
   methods: {
     onAddIndigrent(search) {
       this.indigrentList.push({name: search, id: Math.random()})
-      setItem('indigrentList', this.indigrentList);
+      setIndigrentList(this.indigrentList);
     },
     onRemoveIndigrient(id) {
       this.indigrentList = this.indigrentList.filter((indigrent) => indigrent.id !== id)
-      setItem('indigrentList', this.indigrentList);
+      setIndigrentList(this.indigrentList);
     },
     onAddRecipe() {
       const recipe = {
         indigrentList: this.indigrentList,
-        name: this.recipeName,
-        steps: this.recipeSteps,
+        name: this.recipeTemplate.name,
+        steps: this.recipeTemplate.steps,
       }
-      //TODO: move to separate logic folder
-      const recipeList = getItem('recipeList') || [];
-      recipeList.push(recipe);
-      setItem('recipeList', this.recipeList);
-      setItem('indigrentList', []);
+      addRecipe(recipe)
+      setIndigrentList([]);
       this.$router.push('/')
     }
   },
   data() {
     return {
-      indigrentList: this.indigrentList,
+      indigrentList: getIndigrentList(),
+      // recipeTemplate: getRecipeTemplate(),
       indigrentText: 'indigrent',
       recipeTemplate: {
         name: '',
