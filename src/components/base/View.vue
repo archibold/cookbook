@@ -18,4 +18,11 @@ export default {
     overflow: hidden;
     height: 100%;
   }
+
+  @media only screen and (max-width: 600px) {
+    .view {
+      background-color: lightblue;
+      flex-direction: column;
+    }
+  }
 </style>

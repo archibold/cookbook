@@ -1,21 +1,26 @@
 <template>
   <div class="recipe-list">
     <div v-for="recipe in recipeList" :key="recipe.id">
-      <RecipeBox :recipe="recipe"/>
+      <RecipeItem :recipe="recipe" v-on:click="selectRecipe(recipe)"/>
     </div>
 
   </div>
 </template>
 
 <script>
-import RecipeBox from '@/components/RecipeBox.vue'
+import RecipeItem from '@/components/RecipeItem.vue'
 
 export default {
   name: 'RecipeList',
   props: ['recipeList'],
   components: {
-    RecipeBox,
+    RecipeItem,
   },
+  methods: {
+    selectRecipe(recipe) {
+      this.$emit('selectRecipe', recipe);
+    }
+  }
 }
 </script>
 

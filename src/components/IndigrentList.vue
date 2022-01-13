@@ -16,7 +16,6 @@ export default {
   },
   methods: {
     onRemoveIndigrient(id) {
-      console.log(id)
       this.$emit('onRemoveIndigrient', id)
     }
   },

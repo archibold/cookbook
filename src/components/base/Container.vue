@@ -12,10 +12,8 @@ export default {
 
 <style scoped>
   .container {
-    flex: 5;
+    flex: 3;
     height: 100%;
     background: #2b2b2b;
-    padding: 10px;
-    overflow: hidden;
   }
 </style>

@@ -12,11 +12,10 @@ export default {
 
 <style scoped>
   .sidebar {
-    flex: 2;
+    flex: 1;
     display: flex;
     flex-direction: column;
     background: #2b2b2b;
-    padding: 10px;
     overflow: hidden;
   }
 </style>

@@ -1,26 +1,21 @@
 <template>
-  <div class="recipe-box" v-on:click="onClick">
+  <div class="recipe-item">
     {{recipe.name}}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'RecipeBox',
+  name: 'RecipeItem',
   props: ['recipe'],
-  methods: {
-    onRemove() {
-      this.$emit('onClick')
-    }
-  },
 }
 </script>
 
 <style scoped>
-.recipe-box {
+.recipe-item {
   padding: 15px;
 }
-.recipe-box:hover {
+.recipe-item:hover {
   color: #577da0;
   background: #1c1c1c;
   transition: background 250ms;
