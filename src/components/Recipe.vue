@@ -41,7 +41,8 @@ export default {
 
 <style scoped>
 .sidebar {
-  margin-top: 60px;
+  padding-top: 60px;
+  overflow: hidden;
 }
 
 .indigrent {
@@ -51,8 +52,16 @@ export default {
 .name, .steps {
   padding: 15px;
 }
+
+.container {
+  overflow: auto;
+}
+.steps {
+  white-space: break-spaces;
+}
 .recipe {
   display: flex;
+  height: 100%;
 }
 
 .indigrent-list {
