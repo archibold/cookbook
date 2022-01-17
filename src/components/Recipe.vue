@@ -18,7 +18,9 @@
 <script>
 export default {
   name: 'Recipe',
-  props: ['recipe'],
+  props: {
+    recipe: Object,
+  },
 }
 </script>
 

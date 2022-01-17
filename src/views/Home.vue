@@ -4,12 +4,12 @@
       class="recipe-list"
       v-if="RecipeList.length > 0"
       :recipe-list="RecipeList"
-      v-on:select-recipe="selectRecipe"/>
+      @select-recipe="selectRecipe"/>
   </Sidebar>
   <Container class="container">
     <input v-if="!recipe" class="cookbook-name" v-model="cookbookName">
-    <Recipe v-else  :recipe="this.recipe" />
-    <ActionButton @onAction="newRecipe"><font-awesome-icon icon="utensils"/></ActionButton>
+    <Recipe v-else :recipe="this.recipe" />
+    <ActionButton @on-action="newRecipe"><font-awesome-icon icon="utensils"/></ActionButton>
   </Container>
 </template>
 
@@ -37,19 +37,19 @@ export default {
       cookbookName: getCookbookName() || "This is your cookbook, name it.",
     }
   },
+  watch: {
+    cookbookName() {
+      setCookbookName(this.cookbookName);
+    }
+  },
   methods: {
     newRecipe() {
       this.$router.push('/new-recipe')
     },
     selectRecipe(recipe) {
       this.recipe = recipe;
-    }
+    },
   },
-  watch: {
-    cookbookName() {
-      setCookbookName(this.cookbookName)
-    }
-  }
 }
 </script>
 

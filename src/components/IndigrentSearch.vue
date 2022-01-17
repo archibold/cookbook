@@ -1,24 +1,24 @@
 <template>
     <div class="indigrent-search">
-      <input :placeholder="indigrentLabel" v-model="search" v-on:keydown.enter="addIndigrent"/>
+      <input :placeholder="indigrentLabel" v-model="search" @keydown.enter="addIndigrent"/>
     </div>
 </template>
 
 <script>
 export default {
   name: 'IndigrentSearch',
+  data() {
+    return {
+      search: '',
+      indigrentLabel: 'indigrent'
+    }
+  },
   methods: {
     addIndigrent() {
       this.$emit('onAddIndigrent', this.search)
       this.search = ''
     },
   },
-  data() {
-    return {
-      search: '',
-      indigrentLabel: 'indigrent'
-    }
-  }
 }
 </script>
 

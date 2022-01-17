@@ -1,7 +1,7 @@
 <template>
     <div class="indigrent-list" >
       <div v-for="indigrent in indigrentList" :key="indigrent">
-        <Indigrient :indigrient="indigrent" v-on:on-remove="onRemoveIndigrient"/>
+        <Indigrient :indigrient="indigrent" @on-remove="onRemoveIndigrient"/>
       </div>
     </div>
 </template>
@@ -11,20 +11,22 @@ import Indigrient from '@/components/Indigrient.vue'
 
 export default {
   name: 'IndigrentList',
+  props: {
+    indigrentList: Array,
+  },
   components: {
     Indigrient,
   },
-  methods: {
-    onRemoveIndigrient(id) {
-      this.$emit('onRemoveIndigrient', id)
-    }
-  },
-  props: ['indigrentList'],
   data() {
     return {
       indigrentText: 'indigrent'
     }
-  }
+  },
+  methods: {
+    onRemoveIndigrient(id) {
+      this.$emit('onRemoveIndigrient', id)
+    },
+  },
 }
 </script>
 

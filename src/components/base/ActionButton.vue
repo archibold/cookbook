@@ -1,6 +1,6 @@
 <template>
   <div class="action-button">
-    <button v-on:click="onClick"><slot></slot></button>
+    <button @click="onClick"><slot></slot></button>
   </div>
 </template>
 
@@ -10,8 +10,8 @@ export default {
   methods: {
     onClick() {
       this.$emit('onAction');
-    }
-  }
+    },
+  },
 }
 </script>
 

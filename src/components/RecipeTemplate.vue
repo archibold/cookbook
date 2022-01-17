@@ -15,7 +15,9 @@
 <script>
 export default {
   name: 'RecipeTemplate',
-  props: ['recipeTemplate'],
+  props: {
+    recipeTemplate: Object,
+  },
   data() {
     return {
       name: this.recipeTemplate.name,
@@ -31,8 +33,8 @@ export default {
         steps: this.steps,
       }
       this.$emit('update:recipeTemplate', newRecipeTemplate);
-    }
-  }
+    },
+  },
 }
 </script>
 

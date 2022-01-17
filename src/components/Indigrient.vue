@@ -1,5 +1,5 @@
 <template>
-  <div class="indigrient" v-on:click="onRemove">
+  <div class="indigrient" @click="onRemove">
     {{indigrient.name}}
     <button ><font-awesome-icon icon="times" /></button>
   </div>
@@ -8,11 +8,13 @@
 <script>
 export default {
   name: 'Indigrient',
-  props: ['indigrient'],
+  props: {
+    indigrient: Object,
+  },
   methods: {
     onRemove() {
       this.$emit('onRemove', this.indigrient.id)
-    }
+    },
   },
 }
 </script>

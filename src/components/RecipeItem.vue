@@ -1,5 +1,5 @@
 <template>
-  <div class="recipe-item" v-bind:class="{selected: isSelected}">
+  <div class="recipe-item" :class="{selected: isSelected}">
     {{recipe.name}}
   </div>
 </template>
@@ -7,7 +7,10 @@
 <script>
 export default {
   name: 'RecipeItem',
-  props: ['recipe', 'isSelected'],
+  props: {
+    recipe: Object,
+    isSelected: Boolean,
+  },
 }
 </script>
 

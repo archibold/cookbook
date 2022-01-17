@@ -1,11 +1,11 @@
 <template>
   <Sidebar>
-    <IndigrentSearch v-on:on-add-indigrent="onAddIndigrent"/>
-    <IndigrentList :indigrent-list="indigrentList" v-on:on-remove-indigrient="onRemoveIndigrient" />
+    <IndigrentSearch @on-add-indigrent="onAddIndigrent"/>
+    <IndigrentList :indigrent-list="indigrentList" @on-remove-indigrient="onRemoveIndigrient" />
   </Sidebar>
   <Container>
       <RecipeTemplate v-model:recipe-template="recipeTemplate"/>
-      <ActionButton v-if="isVisible" @onAction="onAddRecipe">+</ActionButton>
+      <ActionButton v-if="isVisible" @on-action="onAddRecipe">+</ActionButton>
   </Container>
 </template>
 
@@ -29,6 +29,24 @@ export default {
     IndigrentSearch,
     Sidebar,
   },
+  data() {
+    return {
+      indigrentList: getIndigrentList(),
+      indigrentText: 'indigrent',
+      recipeTemplate: {
+        name: '',
+        steps: '',
+      },
+    }
+  },
+  computed: {
+    isVisible: function () {
+      return (
+        this.recipeTemplate.name !== '' &&
+        this.recipeTemplate.steps !== '' &&
+        this.indigrentList.length > 0)
+    },
+  },
   methods: {
     onAddIndigrent(search) {
       this.indigrentList.push({name: search, id: Math.random()});
@@ -50,24 +68,6 @@ export default {
       this.$router.push('/');
     }
   },
-  data() {
-    return {
-      indigrentList: getIndigrentList(),
-      indigrentText: 'indigrent',
-      recipeTemplate: {
-        name: '',
-        steps: '',
-      },
-    }
-  },
-  computed: {
-    isVisible: function () {
-      return (
-        this.recipeTemplate.name !== '' &&
-        this.recipeTemplate.steps !== '' &&
-        this.indigrentList.length > 0)
-    }
-  }
 }
 </script>
 
