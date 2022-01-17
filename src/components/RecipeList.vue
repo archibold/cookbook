@@ -1,9 +1,11 @@
 <template>
   <div class="recipe-list">
     <div v-for="recipe in recipeList" :key="recipe.id">
-      <RecipeItem :recipe="recipe" v-on:click="selectRecipe(recipe)"/>
+      <RecipeItem
+        v-bind:is-selected="recipe.id = selectedRecipeId"
+        :recipe="recipe"
+        v-on:click="() => selectRecipe(recipe)"/>
     </div>
-
   </div>
 </template>
 
@@ -18,7 +20,13 @@ export default {
   },
   methods: {
     selectRecipe(recipe) {
+      this.selectedRecipeId = recipe.id;
       this.$emit('selectRecipe', recipe);
+    }
+  },
+  data() {
+    return {
+      selectedRecipeId: undefined,
     }
   }
 }

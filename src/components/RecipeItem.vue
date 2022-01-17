@@ -1,5 +1,5 @@
 <template>
-  <div class="recipe-item">
+  <div class="recipe-item" v-bind:class="{selected: isSelected}">
     {{recipe.name}}
   </div>
 </template>
@@ -7,7 +7,7 @@
 <script>
 export default {
   name: 'RecipeItem',
-  props: ['recipe'],
+  props: ['recipe', 'isSelected'],
 }
 </script>
 
@@ -17,8 +17,10 @@ export default {
   color: #577da0;
 }
 .recipe-item:hover {
-  color: #577da0;
   background: #1c1c1c;
   transition: background 250ms;
+}
+.selected {
+  color: blue;
 }
 </style>

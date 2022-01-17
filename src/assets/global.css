@@ -3,9 +3,10 @@ input, textarea {
   border: none;
   border-bottom: 1px solid #1c1c1c;
   color: #577da0;
-  padding: 15px;
   outline: none;
   width: 100%;
+  line-height: 35px;
+  padding: 5px 15px;
 }
 textarea:focus, input:focus {
   background: #1c1c1c;

@@ -14,21 +14,21 @@
 </template>
 
 <script>
-import ActionButton from '@/components/ActionButton.vue'
+import ActionButton from '@/components/base/ActionButton.vue'
 import Container  from '@/components/base/Container.vue'
-import Sidebar  from '@/components/base/Sidebar.vue'
 import RecipeList  from '@/components/RecipeList.vue'
 import Recipe  from '@/components/Recipe.vue'
-import { getRecipeList, setCookbookName, getCookbookName } from  '@/service/introduction.js'
+import Sidebar  from '@/components/base/Sidebar.vue'
+import { getRecipeList, setCookbookName, getCookbookName } from  '@/service/home.js'
 
 export default {
   name: 'Introduction',
   components: {
     ActionButton,
     Container,
-    Sidebar,
     RecipeList,
     Recipe,
+    Sidebar,
   },
   data() {
     return {

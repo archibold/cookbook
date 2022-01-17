@@ -1,4 +1,4 @@
-import { setItem, getItem } from '@/service/storage.js'
+import { setItem, getItem } from '@/utils/storage.js'
 
 export const getRecipeList = () => {
   return getItem('recipeList') || [];

@@ -1,7 +1,7 @@
-import { getItem, setItem } from '@/service/storage.js'
+import { getItem, setItem } from '@/utils/storage.js'
 
 export const getIndigrentList = () => {
-  return getItem('IndigrentListTemp') || [];
+  return getItem('IndigrentList') || [];
 }
 
 export const setIndigrentList = (indigrentList) => {

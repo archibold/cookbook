@@ -1,11 +1,6 @@
 <template>
   <div class="header">
     <router-link to="/" class="title">{{ title }}</router-link>
-    <div class="nav">
-      <!-- <router-link to="/about">About</router-link> |
-      <router-link to="/list">List</router-link> |
-      <router-link to="/login">Login</router-link> -->
-    </div>
   </div>
 </template>
 
@@ -34,14 +29,5 @@ export default {
   }
   .title:hover {
     color: #577da0;
-  }
-  .nav {
-    flex: 1;
-    justify-content: end;
-    display: flex;
-  }
-
-  .nav a {
-    padding: 0 10px;
   }
 </style>

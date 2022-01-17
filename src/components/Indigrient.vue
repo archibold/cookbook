@@ -26,15 +26,12 @@ export default {
   align-items: center;
   justify-content: space-between;
 }
-
 .indigrient button {
   display: none;
 }
-
 .indigrient:hover > button {
   display: contents;
 }
-
 .indigrient:hover, .indigrient:hover > button {
   text-decoration: line-through;
 }

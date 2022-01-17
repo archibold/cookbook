@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import ActionButton from '@/components/ActionButton.vue'
+import ActionButton from '@/components/base/ActionButton.vue'
 import Container  from '@/components/base/Container.vue'
-import Sidebar  from '@/components/base/Sidebar.vue'
 import IndigrentList from '@/components/IndigrentList.vue'
 import IndigrentSearch from '@/components/IndigrentSearch.vue'
 import RecipeTemplate  from '@/components/RecipeTemplate.vue'
+import Sidebar  from '@/components/base/Sidebar.vue'
 
 import { addRecipe, setIndigrentList, getIndigrentList } from '@/service/newRecipe.js'
 
@@ -24,18 +24,18 @@ export default {
   components: {
     ActionButton,
     Container,
-    Sidebar,
     RecipeTemplate,
     IndigrentList,
     IndigrentSearch,
+    Sidebar,
   },
   methods: {
     onAddIndigrent(search) {
-      this.indigrentList.push({name: search, id: Math.random()})
+      this.indigrentList.push({name: search, id: Math.random()});
       setIndigrentList(this.indigrentList);
     },
     onRemoveIndigrient(id) {
-      this.indigrentList = this.indigrentList.filter((indigrent) => indigrent.id !== id)
+      this.indigrentList = this.indigrentList.filter((indigrent) => indigrent.id !== id);
       setIndigrentList(this.indigrentList);
     },
     onAddRecipe() {
@@ -43,16 +43,16 @@ export default {
         indigrentList: this.indigrentList,
         name: this.recipeTemplate.name,
         steps: this.recipeTemplate.steps,
+        id: Math.random(),
       }
-      addRecipe(recipe)
+      addRecipe(recipe);
       setIndigrentList([]);
-      this.$router.push('/')
+      this.$router.push('/');
     }
   },
   data() {
     return {
       indigrentList: getIndigrentList(),
-      // recipeTemplate: getRecipeTemplate(),
       indigrentText: 'indigrent',
       recipeTemplate: {
         name: '',
